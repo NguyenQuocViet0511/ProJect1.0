@@ -36,42 +36,38 @@ public class Login extends javax.swing.JFrame {
     private Vector<Object> ArrayEmail;
     private String CheckCode;
     User user;
-    public  Preferences pref = Preferences.userRoot().node("Remember"); 
+    public Preferences pref = Preferences.userRoot().node("Remember");
+
     public Login() {
-       
+
         initComponents();
-         Remmember();
+        Init();
+        Remmember();
         setLocationRelativeTo(null);
         window_ForgotPW();
-         LoadDataUser();
+        LoadDataUser();
+
     }
 
-    public void SaveRemember(String UserName, String Password)
-            {
-                if(UserName == null || Password == null)
-                    {
-                        
-                       
-                    }
-                else
-                    {
+    public void SaveRemember(String UserName, String Password) {
+        if (UserName == null || Password == null) {
 
-                        pref.put("UserName", UserName);
-                        pref.put("Password", Password);
-                    }
-            }
-    public final void Checked(boolean Remember)
-            {
-                if(Remember == true)
-                    {
-                        SaveRemember(txtusernamelogin.getText(), txtpwlogin.getText());
-                    }
-                else
-                    {
-                        SaveRemember("Tên Đăng Nhập","Mật Khẩu");
-                    }
-               
-            }
+        } else {
+
+            pref.put("UserName", UserName);
+            pref.put("Password", Password);
+        }
+    }
+
+    public final void Checked(boolean Remember) {
+        if (Remember == true) {
+            SaveRemember(txtusernamelogin.getText(), txtpwlogin.getText());
+        } else {
+            SaveRemember("", "");
+        }
+
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -89,9 +85,9 @@ public class Login extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         jPanel15 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
-        txtchangefotgot1 = new javax.swing.JPasswordField();
-        txtPWchangeforgot = new javax.swing.JPasswordField();
         jLabel20 = new javax.swing.JLabel();
+        txtPWchangeforgot = new com.raven.swing.MyPasswordField();
+        txtchangefotgot1 = new com.raven.swing.MyPasswordField();
         JPaneSignupCode = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         btnsignCode = new javax.swing.JButton();
@@ -104,7 +100,7 @@ public class Login extends javax.swing.JFrame {
         lblTitlesignupCode = new javax.swing.JLabel();
         jPanel18 = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
-        txtCodeChecksignup = new javax.swing.JTextField();
+        txtCodeChecksignup = new com.raven.swing.MyTextField();
         JPaneForgotpassword = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         btnchangePWforgot = new javax.swing.JButton();
@@ -117,27 +113,29 @@ public class Login extends javax.swing.JFrame {
         lblTitleCode = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
-        txtCodeCheck = new javax.swing.JTextField();
+        txtCodeCheck = new com.raven.swing.MyTextField();
         JPanesignup = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
-        txtusernamesignup = new javax.swing.JTextField();
-        txtpwsignup = new javax.swing.JPasswordField();
         btnsignupnlogin = new javax.swing.JButton();
         jLabel18 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
         CheckFemale = new javax.swing.JRadioButton();
         CheckMale = new javax.swing.JRadioButton();
-        txtemailsignup = new javax.swing.JTextField();
-        txthovatensignup = new javax.swing.JTextField();
         jPanel7 = new javax.swing.JPanel();
         btnbacksignup = new javax.swing.JLabel();
         cknCheckCreate = new javax.swing.JCheckBox();
+        txthovatensignup = new com.raven.swing.MyTextField();
+        txtusernamesignup = new com.raven.swing.MyTextField();
+        txtpwsignup = new com.raven.swing.MyPasswordField();
+        txtemailsignup = new com.raven.swing.MyTextField();
+        jSeparator3 = new javax.swing.JSeparator();
+        jSeparator4 = new javax.swing.JSeparator();
+        jSeparator5 = new javax.swing.JSeparator();
+        jSeparator6 = new javax.swing.JSeparator();
         JPaneLogin = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        txtusernamelogin = new javax.swing.JTextField();
-        txtpwlogin = new javax.swing.JPasswordField();
         jPanel2 = new javax.swing.JPanel();
         CheckRemember = new javax.swing.JCheckBox();
         btnforgotpw = new javax.swing.JLabel();
@@ -145,6 +143,10 @@ public class Login extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         btnsignuplogin = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        txtusernamelogin = new com.raven.swing.MyTextField();
+        txtpwlogin = new com.raven.swing.MyPasswordField();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
         JPaneForgotpassword1 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         btnSendEmail = new javax.swing.JButton();
@@ -155,7 +157,7 @@ public class Login extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
-        txtemailSend = new javax.swing.JTextField();
+        txtemailSend = new com.raven.swing.MyTextField();
 
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
         jPanel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -233,29 +235,13 @@ public class Login extends javax.swing.JFrame {
         btnChangePW.add(jPanel15);
         jPanel15.setBounds(60, 100, 250, 40);
 
-        txtchangefotgot1.setText("New Password");
-        txtchangefotgot1.setToolTipText("");
-        txtchangefotgot1.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtchangefotgot1FocusGained(evt);
-            }
-        });
-        btnChangePW.add(txtchangefotgot1);
-        txtchangefotgot1.setBounds(40, 220, 300, 30);
-
-        txtPWchangeforgot.setText("New Password");
-        txtPWchangeforgot.setToolTipText("");
-        txtPWchangeforgot.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtPWchangeforgotFocusGained(evt);
-            }
-        });
-        btnChangePW.add(txtPWchangeforgot);
-        txtPWchangeforgot.setBounds(40, 180, 300, 30);
-
         jLabel20.setText("Mật Khẩu Mới");
         btnChangePW.add(jLabel20);
-        jLabel20.setBounds(40, 150, 90, 14);
+        jLabel20.setBounds(43, 150, 90, 14);
+        btnChangePW.add(txtPWchangeforgot);
+        txtPWchangeforgot.setBounds(40, 180, 300, 30);
+        btnChangePW.add(txtchangefotgot1);
+        txtchangefotgot1.setBounds(40, 220, 300, 30);
 
         kGradientPanel2.add(btnChangePW);
         btnChangePW.setBounds(790, 110, 370, 510);
@@ -315,8 +301,7 @@ public class Login extends javax.swing.JFrame {
         jPanel17.setBackground(new java.awt.Color(255, 255, 255));
 
         lblTitlesignupCode.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lblTitlesignupCode.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_forgot_password_32px_1.png"))); // NOI18N
-        lblTitlesignupCode.setText("Quên Mật Khẩu");
+        lblTitlesignupCode.setText("Đăng Ký Tài Khoản");
         jPanel17.add(lblTitlesignupCode);
 
         JPaneSignupCode.add(jPanel17);
@@ -330,21 +315,9 @@ public class Login extends javax.swing.JFrame {
         jPanel18.add(jLabel22);
         jLabel22.setBounds(10, 10, 20, 20);
 
-        txtCodeChecksignup.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        txtCodeChecksignup.setText("Nhập Vào Code Được Gửi Tới Email");
         txtCodeChecksignup.setBorder(null);
-        txtCodeChecksignup.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtCodeChecksignupFocusGained(evt);
-            }
-        });
-        txtCodeChecksignup.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtCodeChecksignupMouseClicked(evt);
-            }
-        });
         jPanel18.add(txtCodeChecksignup);
-        txtCodeChecksignup.setBounds(41, 1, 255, 35);
+        txtCodeChecksignup.setBounds(40, 5, 255, 30);
 
         JPaneSignupCode.add(jPanel18);
         jPanel18.setBounds(40, 170, 300, 40);
@@ -374,7 +347,7 @@ public class Login extends javax.swing.JFrame {
 
         btnbackforgotpw2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnbackforgotpw2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_go_back_20px_1.png"))); // NOI18N
-        btnbackforgotpw2.setText("Sign In");
+        btnbackforgotpw2.setText("Đăng Nhập");
         btnbackforgotpw2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnbackforgotpw2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -390,7 +363,7 @@ public class Login extends javax.swing.JFrame {
 
         btnbackforgotpw.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnbackforgotpw.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_go_back_20px_1.png"))); // NOI18N
-        btnbackforgotpw.setText("Back");
+        btnbackforgotpw.setText("Quay lại");
         btnbackforgotpw.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnbackforgotpw.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -422,16 +395,9 @@ public class Login extends javax.swing.JFrame {
         jPanel6.add(jLabel12);
         jLabel12.setBounds(10, 10, 20, 20);
 
-        txtCodeCheck.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        txtCodeCheck.setText("Nhập Vào Code Được gởi tới Email");
         txtCodeCheck.setBorder(null);
-        txtCodeCheck.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtCodeCheckMouseClicked(evt);
-            }
-        });
         jPanel6.add(txtCodeCheck);
-        txtCodeCheck.setBounds(41, 1, 255, 35);
+        txtCodeCheck.setBounds(40, 5, 255, 30);
 
         JPaneForgotpassword.add(jPanel6);
         jPanel6.setBounds(40, 170, 300, 40);
@@ -449,31 +415,7 @@ public class Login extends javax.swing.JFrame {
         JPanesignup.add(jLabel16);
         jLabel16.setBounds(92, 80, 185, 40);
 
-        txtusernamesignup.setText("Tên Đăng Nhập");
-        txtusernamesignup.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtusernamesignupFocusGained(evt);
-            }
-        });
-        txtusernamesignup.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtusernamesignupMouseClicked(evt);
-            }
-        });
-        JPanesignup.add(txtusernamesignup);
-        txtusernamesignup.setBounds(60, 190, 250, 30);
-
-        txtpwsignup.setText("Password");
-        txtpwsignup.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtpwsignupFocusGained(evt);
-            }
-        });
-        JPanesignup.add(txtpwsignup);
-        txtpwsignup.setBounds(60, 240, 250, 30);
-
         btnsignupnlogin.setBackground(new java.awt.Color(0, 153, 255));
-        btnsignupnlogin.setForeground(new java.awt.Color(51, 51, 255));
         btnsignupnlogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_right_32px_2.png"))); // NOI18N
         btnsignupnlogin.setText("Đăng Ký");
         btnsignupnlogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -521,24 +463,6 @@ public class Login extends javax.swing.JFrame {
         JPanesignup.add(jPanel9);
         jPanel9.setBounds(60, 335, 140, 20);
 
-        txtemailsignup.setText("Email");
-        txtemailsignup.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtemailsignupFocusGained(evt);
-            }
-        });
-        JPanesignup.add(txtemailsignup);
-        txtemailsignup.setBounds(60, 290, 250, 30);
-
-        txthovatensignup.setText("Họ Và Tên");
-        txthovatensignup.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txthovatensignupFocusGained(evt);
-            }
-        });
-        JPanesignup.add(txthovatensignup);
-        txthovatensignup.setBounds(60, 140, 250, 30);
-
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
 
         btnbacksignup.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -565,6 +489,30 @@ public class Login extends javax.swing.JFrame {
         JPanesignup.add(cknCheckCreate);
         cknCheckCreate.setBounds(60, 370, 250, 23);
 
+        txthovatensignup.setBorder(null);
+        JPanesignup.add(txthovatensignup);
+        txthovatensignup.setBounds(60, 140, 250, 30);
+
+        txtusernamesignup.setBorder(null);
+        JPanesignup.add(txtusernamesignup);
+        txtusernamesignup.setBounds(60, 190, 250, 30);
+
+        txtpwsignup.setBorder(null);
+        JPanesignup.add(txtpwsignup);
+        txtpwsignup.setBounds(60, 240, 250, 30);
+
+        txtemailsignup.setBorder(null);
+        JPanesignup.add(txtemailsignup);
+        txtemailsignup.setBounds(60, 290, 250, 30);
+        JPanesignup.add(jSeparator3);
+        jSeparator3.setBounds(60, 320, 250, 10);
+        JPanesignup.add(jSeparator4);
+        jSeparator4.setBounds(60, 170, 250, 20);
+        JPanesignup.add(jSeparator5);
+        jSeparator5.setBounds(60, 220, 250, 20);
+        JPanesignup.add(jSeparator6);
+        jSeparator6.setBounds(60, 270, 250, 20);
+
         kGradientPanel2.add(JPanesignup);
         JPanesignup.setBounds(790, 110, 370, 510);
 
@@ -581,24 +529,6 @@ public class Login extends javax.swing.JFrame {
         jLabel4.setText("Chào Mừng Trở Lại");
         JPaneLogin.add(jLabel4);
         jLabel4.setBounds(120, 110, 140, 17);
-
-        txtusernamelogin.setText("Tên Đăng Nhập");
-        txtusernamelogin.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtusernameloginMouseClicked(evt);
-            }
-        });
-        JPaneLogin.add(txtusernamelogin);
-        txtusernamelogin.setBounds(60, 160, 250, 30);
-
-        txtpwlogin.setText("Password");
-        txtpwlogin.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtpwloginFocusGained(evt);
-            }
-        });
-        JPaneLogin.add(txtpwlogin);
-        txtpwlogin.setBounds(60, 210, 250, 30);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new java.awt.BorderLayout());
@@ -649,6 +579,23 @@ public class Login extends javax.swing.JFrame {
         jPanel3.setBounds(60, 370, 250, 40);
         JPaneLogin.add(jLabel2);
         jLabel2.setBounds(20, 170, 0, 0);
+
+        txtusernamelogin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtusernamelogin.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtusernameloginFocusGained(evt);
+            }
+        });
+        JPaneLogin.add(txtusernamelogin);
+        txtusernamelogin.setBounds(60, 160, 250, 35);
+
+        txtpwlogin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        JPaneLogin.add(txtpwlogin);
+        txtpwlogin.setBounds(60, 210, 250, 35);
+        JPaneLogin.add(jSeparator1);
+        jSeparator1.setBounds(60, 200, 250, 2);
+        JPaneLogin.add(jSeparator2);
+        jSeparator2.setBounds(60, 248, 250, 2);
 
         kGradientPanel2.add(JPaneLogin);
         JPaneLogin.setBounds(790, 110, 370, 510);
@@ -708,16 +655,9 @@ public class Login extends javax.swing.JFrame {
         jPanel11.add(jLabel14);
         jLabel14.setBounds(10, 10, 20, 20);
 
-        txtemailSend.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        txtemailSend.setText("Nhập Vào Email ");
         txtemailSend.setBorder(null);
-        txtemailSend.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtemailSendMouseClicked(evt);
-            }
-        });
         jPanel11.add(txtemailSend);
-        txtemailSend.setBounds(41, 1, 255, 35);
+        txtemailSend.setBounds(40, 5, 255, 30);
 
         JPaneForgotpassword1.add(jPanel11);
         jPanel11.setBounds(40, 170, 300, 40);
@@ -730,25 +670,24 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtCodeCheckMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCodeCheckMouseClicked
-        txtCodeCheck.setText("");
-    }//GEN-LAST:event_txtCodeCheckMouseClicked
-
     private void btnbackforgotpwMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbackforgotpwMouseClicked
         window_ForgotPW();
     }//GEN-LAST:event_btnbackforgotpwMouseClicked
 
     private void btnsignuploginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsignuploginMouseClicked
-        txthovatensignup.setText("Họ Và Tên");
-        txtusernamesignup.setText("Username");
-        txtpwsignup.setText("Password");
-        txtemailsignup.setText("Email");
+        
         CheckFemale.setSelected(false);
         CheckMale.setSelected(false);
         JPaneLogin.hide();
         JPaneForgotpassword.hide();
         JPanesignup.show();
         JPaneSignupCode.hide();
+        txtusernamesignup.setText("");
+        txtCodeChecksignup.setText("");
+        txthovatensignup.setText("");
+        txtemailsignup.setText("");
+        txtpwsignup.setText("");
+        cknCheckCreate.setSelected(false);
     }//GEN-LAST:event_btnsignuploginMouseClicked
 
     private void btnforgotpwMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnforgotpwMouseClicked
@@ -765,22 +704,6 @@ public class Login extends javax.swing.JFrame {
     private void btnforgotpwMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnforgotpwMouseEntered
 
     }//GEN-LAST:event_btnforgotpwMouseEntered
-
-    private void txtusernameloginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtusernameloginMouseClicked
-        txtusernamelogin.setText("");
-    }//GEN-LAST:event_txtusernameloginMouseClicked
-
-    private void txtpwloginFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtpwloginFocusGained
-        txtpwlogin.setText("");
-    }//GEN-LAST:event_txtpwloginFocusGained
-
-    private void txtusernamesignupMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtusernamesignupMouseClicked
-        txtemailsignup.setText("");
-    }//GEN-LAST:event_txtusernamesignupMouseClicked
-
-    private void txtpwsignupFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtpwsignupFocusGained
-        txtpwsignup.setText("");
-    }//GEN-LAST:event_txtpwsignupFocusGained
 
     private void btnbacksignupMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbacksignupMouseClicked
 
@@ -804,14 +727,11 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_btnbacksignupMouseExited
 
     private void btnsinginloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsinginloginActionPerformed
-        if(CheckRemember.isSelected())
-            {
-                Checked(true);
-            }
-        else
-            {
-                Checked(false);
-            }
+        if (CheckRemember.isSelected()) {
+            Checked(true);
+        } else {
+            Checked(false);
+        }
         if (txtusernamelogin.getText().isEmpty() || txtpwlogin.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Vui lòng Không Được Để Trống", "Nhắc Nhở", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(getClass().getResource("/img/icons8_ask_question_20px_3.png")));
         } else {
@@ -846,7 +766,7 @@ public class Login extends javax.swing.JFrame {
                 btnChangePW.show();
                 JPaneSignupCode.hide();
             } else {
-                JOptionPane.showMessageDialog(null, "Code Bạn Nhập Sai Vui lòng Nhập Lại", "Nhắc Nhở", JOptionPane.INFORMATION_MESSAGE,  new ImageIcon(getClass().getResource("/img/icons8_ask_question_20px_3.png")));
+                JOptionPane.showMessageDialog(null, "Code Bạn Nhập Sai Vui lòng Nhập Lại", "Nhắc Nhở", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(getClass().getResource("/img/icons8_ask_question_20px_3.png")));
 
             }
         }
@@ -877,10 +797,6 @@ public class Login extends javax.swing.JFrame {
         window_ForgotPW();
     }//GEN-LAST:event_btnbackforgotpw1MouseClicked
 
-    private void txtemailSendMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtemailSendMouseClicked
-        txtemailSend.setText("");
-    }//GEN-LAST:event_txtemailSendMouseClicked
-
     private void txtverycodeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtverycodeMouseClicked
         txtverycode.setText("");
     }//GEN-LAST:event_txtverycodeMouseClicked
@@ -891,7 +807,7 @@ public class Login extends javax.swing.JFrame {
 
     private void btnchangePWforgot1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnchangePWforgot1ActionPerformed
         if (txtPWchangeforgot.getText().isEmpty() && txtchangefotgot1.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Vui lòng Nhập Vào Mật khẩu Mới", "Nhắc Nhở", JOptionPane.INFORMATION_MESSAGE,  new ImageIcon(getClass().getResource("/img/icons8_ask_question_20px_3.png")));
+            JOptionPane.showMessageDialog(this, "Vui lòng Nhập Vào Mật khẩu Mới", "Nhắc Nhở", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(getClass().getResource("/img/icons8_ask_question_20px_3.png")));
         } else {
             User Update = Const.session.get(User.class, user.getUserName());
             Update.setPassword(txtPWchangeforgot.getText());
@@ -899,11 +815,11 @@ public class Login extends javax.swing.JFrame {
                 Const.session.getTransaction().begin();
                 Const.session.save(Update);
                 Const.session.getTransaction().commit();
-                JOptionPane.showMessageDialog(this, "Bạn Đã Thay Đổi Mật Khẩu Mới Thành Công", "Nhắc Nhở", JOptionPane.QUESTION_MESSAGE,  new ImageIcon(getClass().getResource("/img/icons8_ask_question_20px_3.png")));
+                JOptionPane.showMessageDialog(this, "Bạn Đã Thay Đổi Mật Khẩu Mới Thành Công", "Nhắc Nhở", JOptionPane.QUESTION_MESSAGE, new ImageIcon(getClass().getResource("/img/icons8_ask_question_20px_3.png")));
                 user = null;
 
             } else {
-                JOptionPane.showMessageDialog(this, "Nhập Lại Mật khẩu Không Giống Nhau", "Thông Tin", JOptionPane.WARNING_MESSAGE,  new ImageIcon(getClass().getResource("/img/icons8_lock_20px_1.png")));
+                JOptionPane.showMessageDialog(this, "Nhập Lại Mật khẩu Không Giống Nhau", "Thông Tin", JOptionPane.WARNING_MESSAGE, new ImageIcon(getClass().getResource("/img/icons8_lock_20px_1.png")));
             }
         }
     }//GEN-LAST:event_btnchangePWforgot1ActionPerformed
@@ -911,26 +827,6 @@ public class Login extends javax.swing.JFrame {
     private void btnbackSigninforgotpwMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbackSigninforgotpwMouseClicked
         window_ForgotPW();
     }//GEN-LAST:event_btnbackSigninforgotpwMouseClicked
-
-    private void txtPWchangeforgotFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPWchangeforgotFocusGained
-        txtPWchangeforgot.setText("");
-    }//GEN-LAST:event_txtPWchangeforgotFocusGained
-
-    private void txtchangefotgot1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtchangefotgot1FocusGained
-        txtchangefotgot1.setText("");
-    }//GEN-LAST:event_txtchangefotgot1FocusGained
-
-    private void txthovatensignupFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txthovatensignupFocusGained
-        txthovatensignup.setText("");
-    }//GEN-LAST:event_txthovatensignupFocusGained
-
-    private void txtusernamesignupFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtusernamesignupFocusGained
-        txtusernamesignup.setText("");
-    }//GEN-LAST:event_txtusernamesignupFocusGained
-
-    private void txtemailsignupFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtemailsignupFocusGained
-        txtemailsignup.setText("");
-    }//GEN-LAST:event_txtemailsignupFocusGained
 
     private void CheckMaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckMaleActionPerformed
         if (CheckMale.isSelected() == true) {
@@ -1009,14 +905,6 @@ public class Login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnsignCodeActionPerformed
 
-    private void txtCodeChecksignupMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCodeChecksignupMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCodeChecksignupMouseClicked
-
-    private void txtCodeChecksignupFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCodeChecksignupFocusGained
-        txtCodeChecksignup.setText("");
-    }//GEN-LAST:event_txtCodeChecksignupFocusGained
-
     private void btnbackforgotpw4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbackforgotpw4MouseClicked
         window_ForgotPW();
     }//GEN-LAST:event_btnbackforgotpw4MouseClicked
@@ -1025,6 +913,10 @@ public class Login extends javax.swing.JFrame {
 
         window_ForgotPW();
     }//GEN-LAST:event_btnbackforgotpw3MouseClicked
+
+    private void txtusernameloginFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtusernameloginFocusGained
+
+    }//GEN-LAST:event_txtusernameloginFocusGained
     private void window_ForgotPW() {
         JPaneForgotpassword.hide();
         JPaneLogin.show();
@@ -1349,20 +1241,26 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
     private keeptoo.KGradientPanel kGradientPanel2;
     private javax.swing.JLabel lblTitleCode;
     private javax.swing.JLabel lblTitlesignupCode;
-    private javax.swing.JTextField txtCodeCheck;
-    private javax.swing.JTextField txtCodeChecksignup;
-    private javax.swing.JPasswordField txtPWchangeforgot;
-    private javax.swing.JPasswordField txtchangefotgot1;
-    private javax.swing.JTextField txtemailSend;
-    private javax.swing.JTextField txtemailsignup;
-    private javax.swing.JTextField txthovatensignup;
-    private javax.swing.JPasswordField txtpwlogin;
-    private javax.swing.JPasswordField txtpwsignup;
-    private javax.swing.JTextField txtusernamelogin;
-    private javax.swing.JTextField txtusernamesignup;
+    private com.raven.swing.MyTextField txtCodeCheck;
+    private com.raven.swing.MyTextField txtCodeChecksignup;
+    private com.raven.swing.MyPasswordField txtPWchangeforgot;
+    private com.raven.swing.MyPasswordField txtchangefotgot1;
+    private com.raven.swing.MyTextField txtemailSend;
+    private com.raven.swing.MyTextField txtemailsignup;
+    private com.raven.swing.MyTextField txthovatensignup;
+    private com.raven.swing.MyPasswordField txtpwlogin;
+    private com.raven.swing.MyPasswordField txtpwsignup;
+    private com.raven.swing.MyTextField txtusernamelogin;
+    private com.raven.swing.MyTextField txtusernamesignup;
     private javax.swing.JTextField txtverycode;
     // End of variables declaration//GEN-END:variables
 
@@ -1374,4 +1272,28 @@ public class Login extends javax.swing.JFrame {
         pass = pref.get("Password", pass);
         txtpwlogin.setText(pass);
     }
+
+    private void Init() {
+        txtpwlogin.setHint("Mật Khẩu");
+        txtpwlogin.setPrefixIcon(new ImageIcon(getClass().getResource("/img/pass.png")));
+//        txtpwlogin.setBorder(javax.swing.BorderFactory.createLineBorder(Color.BLACK));
+
+        txtusernamelogin.setHint("Tên Đăng Nhập");
+        txtusernamelogin.setPrefixIcon(new ImageIcon(getClass().getResource("/img/user.png")));
+        txtCodeChecksignup.setHint("Nhập Vào Mã Code Được Gửi Tới Email ");
+        txtCodeCheck.setHint("Nhập Vào Mã Code Được Gửi Tới Email ");
+        txtemailSend.setHint("Nhập Vào Email Của Bạn");
+        txthovatensignup.setHint("Họ Và Tên");
+        txtusernamesignup.setHint("Tên Đăng Nhập");
+        txtusernamesignup.setPrefixIcon(new ImageIcon(getClass().getResource("/img/user.png")));
+        txtpwsignup.setHint("Mật Khẩu");
+        txtpwsignup.setPrefixIcon(new ImageIcon(getClass().getResource("/img/pass.png")));
+        txtemailsignup.setPrefixIcon(new ImageIcon(getClass().getResource("/img/icons8_secured_letter_20px_1.png")));
+        txthovatensignup.setPrefixIcon(new ImageIcon(getClass().getResource("/img/icons8_name_20px_1.png")));
+        txtemailsignup.setHint("Email");
+        txtchangefotgot1.setHint("Nhập Lại Mật Khẩu");
+        txtPWchangeforgot.setHint("Nhập Mật Khẩu Mới");
+        
+    }
+
 }
