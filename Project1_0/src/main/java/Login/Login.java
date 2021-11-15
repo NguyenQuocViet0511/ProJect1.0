@@ -413,7 +413,7 @@ public class Login extends javax.swing.JFrame {
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel16.setText("Tạo Tài Khoản Mới");
         JPanesignup.add(jLabel16);
-        jLabel16.setBounds(92, 80, 185, 40);
+        jLabel16.setBounds(100, 80, 170, 40);
 
         btnsignupnlogin.setBackground(new java.awt.Color(0, 153, 255));
         btnsignupnlogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_right_32px_2.png"))); // NOI18N
