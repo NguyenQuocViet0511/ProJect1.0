@@ -65,6 +65,7 @@ public class NhapDiem extends javax.swing.JPanel {
         sp.getViewport().setBackground(Color.WHITE);
         Table.getColumn("").setCellRenderer(new ButtonRenderer());
         Table.getColumn("").setCellEditor(new ButtonEditor(new JCheckBox()));
+//        Table.getColumn("").setMaxWidth(10);
         Table1.setShowHorizontalLines(true);
         Table1.getTableHeader().setDefaultRenderer(new DefaultTableCellRenderer() {
             @Override
@@ -83,7 +84,9 @@ public class NhapDiem extends javax.swing.JPanel {
 
     //load
     public void loadDataDiem() {
-        Query query = Const.session.createQuery("SELECT d.ID,s.MaSV,s.hoten,d.MaMon,d.DiemDau,d.Diemgiua,d.DiemCuoi,d.Tongcuoi FROM SinhVien s join Diem d on s.MaSV = d.MaSV");
+        cbnMonHoc.setSelectedItem(-1);
+        cbnMaMon.setSelectedItem(-1);
+        Query query = Const.session.createQuery("SELECT d.ID,s.MaSV,s.hoten,d.MaMon,d.Monhoc,d.DiemDau,d.Diemgiua,d.DiemCuoi,d.Tongcuoi FROM SinhVien s join Diem d on s.MaSV = d.MaSV");
         List<Object[]> listResult = query.getResultList();
         DefaultTableModel model = (DefaultTableModel) Table.getModel();
         model.setRowCount(0);
@@ -93,17 +96,17 @@ public class NhapDiem extends javax.swing.JPanel {
         }
     }
 
-    public void loadDataSV() {
-        Query q = Const.session.createQuery("FROM SinhVien");
-        Const.ListSinhVien = null;
-        Const.ListSinhVien = q.getResultList();
+    public void loadDataMon() {
+        Query q = Const.session.createQuery("FROM Monhoc");
+        Const.ListMonhoc = null;
+        Const.ListMonhoc = q.getResultList();
 
         DefaultTableModel model = (DefaultTableModel) Table1.getModel();
         model.setRowCount(0);
-        for (SinhVien item : Const.ListSinhVien) {
+        for (Monhoc item : Const.ListMonhoc) {
             Vector<Object> Vector = new Vector<>();
-            Vector.add(item.getMaSV());
-            Vector.add(item.getHoten());
+            Vector.add(item.getMaMonhoc());
+            Vector.add(item.getTenMonhoc());
             model.addRow(Vector);
 
         }
@@ -128,6 +131,8 @@ public class NhapDiem extends javax.swing.JPanel {
         btnsua = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         cbnMonHoc = new javax.swing.JComboBox<>();
+        cbnMaMon = new javax.swing.JComboBox<>();
+        jLabel8 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         sp1 = new javax.swing.JScrollPane();
         Table1 = new javax.swing.JTable();
@@ -199,7 +204,9 @@ public class NhapDiem extends javax.swing.JPanel {
         });
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel7.setText("môn học :");
+        jLabel7.setText("Mã Môn :");
+
+        jLabel8.setText("Tên Môn :");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -225,17 +232,20 @@ public class NhapDiem extends javax.swing.JPanel {
                         .addComponent(btnNhapdiem, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(57, 57, 57)
                         .addComponent(btnsua, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(342, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(TxtHovaTen)
                             .addComponent(TxtMaSinhVien)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(cbnMonHoc, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 374, Short.MAX_VALUE))
                             .addComponent(txtDiemdau)
                             .addComponent(TxtDiemgiua)
-                            .addComponent(txtDiemCuoi))
+                            .addComponent(txtDiemCuoi)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(cbnMaMon, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(53, 53, 53)
+                                .addComponent(jLabel8)
+                                .addGap(26, 26, 26)
+                                .addComponent(cbnMonHoc, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGap(145, 145, 145))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -252,7 +262,9 @@ public class NhapDiem extends javax.swing.JPanel {
                 .addGap(25, 25, 25)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cbnMonHoc, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
+                    .addComponent(jLabel7)
+                    .addComponent(cbnMaMon, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
                 .addGap(25, 25, 25)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtDiemdau, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -284,7 +296,7 @@ public class NhapDiem extends javax.swing.JPanel {
                 {null, null}
             },
             new String [] {
-                "Mã Sinh Viên", "Họ Và Tên"
+                "Mã Môn", "Tên Môn"
             }
         ) {
             Class[] types = new Class [] {
@@ -350,20 +362,20 @@ public class NhapDiem extends javax.swing.JPanel {
 
         Table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Mã Sinh viên", "Họ Và Tên", "Môn Học", "Điểm Đầu Kỳ", "Diểm Giữa Kỳ", "Điểm Cuối kỳ", "Tổng TB", ""
+                "ID", "Mã Sinh viên", "Họ Và Tên", "Mã Môn", "Môn Học", "Điểm Đầu Kỳ", "Diểm Giữa Kỳ", "Điểm Cuối kỳ", "Tổng TB", ""
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Object.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, true
+                false, false, false, false, false, false, false, false, false, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -445,7 +457,8 @@ public class NhapDiem extends javax.swing.JPanel {
                             Diem diem = new Diem();
                             diem.setMaSV(Integer.parseInt(TxtMaSinhVien.getText()));
                             diem.setHovaTen(TxtHovaTen.getText());
-                            diem.setMaMon(cbnMonHoc.getSelectedItem().toString());
+                            diem.setMonhoc(cbnMonHoc.getSelectedItem().toString());
+                            diem.setMaMon(cbnMaMon.getSelectedItem().toString());
                             diem.setDiemDau(Double.parseDouble(txtDiemdau.getText()));
                             diem.setDiemgiua(Double.parseDouble(TxtDiemgiua.getText()));
                             diem.setDiemCuoi(Double.parseDouble(txtDiemCuoi.getText()));
@@ -453,7 +466,7 @@ public class NhapDiem extends javax.swing.JPanel {
                             Const.session.getTransaction().begin();
                             Const.session.save(diem);
                             Const.session.getTransaction().commit();
-                            JOptionPane.showMessageDialog(null, "Nhập Thành Công", "Nhắc Nhở", JOptionPane.INFORMATION_MESSAGE,new ImageIcon(getClass().getResource("/img/icons8_ask_question_20px_3.png")));
+                            JOptionPane.showMessageDialog(null, "Nhập Thành Công", "Nhắc Nhở", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(getClass().getResource("/img/icons8_ask_question_20px_3.png")));
                             loadDataDiem();
                             TxtMaSinhVien.setText("");
                             TxtHovaTen.setText("");
@@ -461,6 +474,8 @@ public class NhapDiem extends javax.swing.JPanel {
                             TxtDiemgiua.setText("");
                             txtDiemCuoi.setText("");
                             cbnMonHoc.setSelectedItem(-1);
+                            cbnMaMon.setSelectedItem(-1);
+
                         } else {
                             JOptionPane.showMessageDialog(null, "Không Có sinh Viên Này Trong Danh Sách", "Nhắc Nhở", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(getClass().getResource("/img/icons8_ask_question_20px_3.png")));
 
@@ -491,10 +506,13 @@ public class NhapDiem extends javax.swing.JPanel {
                         Diem sua = Const.session.get(Diem.class, search);
                         sua.setMaSV(Integer.parseInt(TxtMaSinhVien.getText()));
                         sua.setHovaTen(TxtHovaTen.getText());
+                        sua.setMaMon(cbnMaMon.getSelectedItem().toString());
                         sua.setDiemDau(Double.parseDouble(txtDiemdau.getText()));
                         sua.setDiemgiua(Double.parseDouble(TxtDiemgiua.getText()));
                         sua.setDiemCuoi(Double.parseDouble(txtDiemCuoi.getText()));
                         sua.setTongcuoi((sua.getDiemDau() + sua.getDiemgiua() + sua.getDiemCuoi()) / 3);
+                        JOptionPane.showMessageDialog(null, "Bạn sửa Thành Công", "Nhắc Nhở", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(getClass().getResource("/img/icons8_ask_question_20px_3.png")));
+
                         Const.session.getTransaction().begin();
                         Const.session.save(sua);
                         Const.session.getTransaction().commit();
@@ -511,7 +529,7 @@ public class NhapDiem extends javax.swing.JPanel {
 
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Bạn chưa chọn Danh Sách Nào", "Nhắc Nhở", JOptionPane.INFORMATION_MESSAGE,new ImageIcon(getClass().getResource("/img/icons8_ask_question_20px_3.png")));
+            JOptionPane.showMessageDialog(null, "Bạn chưa chọn Danh Sách Nào", "Nhắc Nhở", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(getClass().getResource("/img/icons8_ask_question_20px_3.png")));
 
         }
 
@@ -527,8 +545,9 @@ public class NhapDiem extends javax.swing.JPanel {
             TxtDiemgiua.setText("");
             txtDiemCuoi.setText("");
             cbnMonHoc.setSelectedItem(-1);
-            TxtMaSinhVien.setText(Table1.getValueAt(index, 0).toString());
-            TxtHovaTen.setText(Table1.getValueAt(index, 1).toString());
+            cbnMaMon.setSelectedItem(-1);
+            cbnMaMon.setSelectedItem(Table1.getValueAt(index, 0).toString());
+            cbnMonHoc.setSelectedItem(Table1.getValueAt(index, 1).toString());
         }
     }//GEN-LAST:event_Table1MouseClicked
 
@@ -541,12 +560,14 @@ public class NhapDiem extends javax.swing.JPanel {
             TxtDiemgiua.setText("");
             txtDiemCuoi.setText("");
             cbnMonHoc.setSelectedItem(-1);
+            cbnMaMon.setSelectedItem(-1);
             TxtMaSinhVien.setText(Table.getValueAt(index, 1).toString());
             TxtHovaTen.setText(Table.getValueAt(index, 2).toString());
-            cbnMonHoc.setSelectedItem(Table.getValueAt(index, 3).toString());
-            txtDiemdau.setText(Table.getValueAt(index, 4).toString());
-            TxtDiemgiua.setText(Table.getValueAt(index, 5).toString());
-            txtDiemCuoi.setText(Table.getValueAt(index, 6).toString());
+            cbnMaMon.setSelectedItem(Table.getValueAt(index, 3).toString());
+            cbnMonHoc.setSelectedItem(Table.getValueAt(index, 4).toString());
+            txtDiemdau.setText(Table.getValueAt(index, 5).toString());
+            TxtDiemgiua.setText(Table.getValueAt(index, 6).toString());
+            txtDiemCuoi.setText(Table.getValueAt(index, 7).toString());
         }
     }//GEN-LAST:event_TableMouseClicked
 
@@ -589,6 +610,8 @@ public class NhapDiem extends javax.swing.JPanel {
                         Const.session.getTransaction().begin();
                         Const.session.delete(delete);
                         Const.session.getTransaction().commit();
+                        JOptionPane.showMessageDialog(null, "Xóa Thành Công", "Nhắc Nhở", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(getClass().getResource("/img/icons8_ask_question_20px_3.png")));
+
                         Table.removeEditor();
                         loadDataDiem();
                         TxtMaSinhVien.setText("");
@@ -597,13 +620,14 @@ public class NhapDiem extends javax.swing.JPanel {
                         TxtDiemgiua.setText("");
                         txtDiemCuoi.setText("");
                         cbnMonHoc.setSelectedItem(-1);
+                        cbnMaMon.setSelectedItem(-1);
 
                     } else {
 
                     }
 
                 } else {
-            JOptionPane.showMessageDialog(null, "Bạn chưa chọn Danh Sách Nào", "Nhắc Nhở", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(getClass().getResource("/img/icons8_ask_question_20px_3.png")));
+                    JOptionPane.showMessageDialog(null, "Bạn chưa chọn Danh Sách Nào", "Nhắc Nhở", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(getClass().getResource("/img/icons8_ask_question_20px_3.png")));
                 }
 
             }
@@ -628,7 +652,7 @@ public class NhapDiem extends javax.swing.JPanel {
         Query q = Const.session.createQuery("FROM Diem");
         Const.ListDiem = q.getResultList();
         for (int i = 0; i < Const.ListDiem.size(); i++) {
-            if (Const.ListDiem.get(i).getMaSV() == Integer.parseInt(TxtMaSinhVien.getText()) && Const.ListDiem.get(i).getMaMon().equals(cbnMonHoc.getSelectedItem().toString())) {
+            if (Const.ListDiem.get(i).getMaSV() == Integer.parseInt(TxtMaSinhVien.getText()) && Const.ListDiem.get(i).getMaMon().equals(cbnMaMon.getSelectedItem().toString()) && Const.ListDiem.get(i).getMonhoc().equals(cbnMonHoc.getSelectedItem().toString())) {
                 return true;
             }
         }
@@ -647,11 +671,13 @@ public class NhapDiem extends javax.swing.JPanel {
     //
     public void AddDataMon() {
         cbnMonHoc.removeAllItems();
+        cbnMaMon.removeAllItems();
         Const.ListMonhoc = null;
         Query Mon = Const.session.createQuery("FROM Monhoc");
         Const.ListMonhoc = Mon.getResultList();
         for (Monhoc item : Const.ListMonhoc) {
             cbnMonHoc.addItem(item.getTenMonhoc());;
+            cbnMaMon.addItem(item.getMaMonhoc());
         }
     }
 
@@ -699,6 +725,7 @@ public class NhapDiem extends javax.swing.JPanel {
     private javax.swing.JTextField TxtMaSinhVien;
     private javax.swing.JButton btnNhapdiem;
     private javax.swing.JButton btnsua;
+    private javax.swing.JComboBox<String> cbnMaMon;
     private javax.swing.JComboBox<String> cbnMonHoc;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -707,6 +734,7 @@ public class NhapDiem extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

@@ -42,7 +42,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES ('admin','Nguyễn Quốc Việt','lonconbaby2210@gmail.com','admin','1','Nam','2001-11-05','Admin','Bình Thường'),('giaoVien','1','a','giaoVien','a','Nam','1991-01-01','User','Bình Thường');
+INSERT INTO `user` VALUES ('119000703','1','1','1','','Nam','1991-01-01','SinhVien','Bình Thường'),('119000705','1','1','1','a','Nam','1991-01-01','SinhVien','Bình Thường'),('admin','Nguyễn Quốc Việt','lonconbaby2210@gmail.com','admin','1','Nam','2001-11-05','Admin','Bình Thường'),('giaoVien','1','a','giaoVien','a','Nam','1991-01-01','User','Khóa');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -55,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-11-13 10:24:08
+-- Dump completed on 2021-11-16  1:06:18

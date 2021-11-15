@@ -335,7 +335,7 @@ public class FormMain extends javax.swing.JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 nhapDiem.loadDataDiem();
-                nhapDiem.loadDataSV();
+                nhapDiem.loadDataMon();
                 nhapDiem.AddDataMon();
                 main.ShowFrom(nhapDiem);
             }
@@ -506,6 +506,7 @@ public class FormMain extends javax.swing.JFrame {
         trangchu.AddEnventButtonTrangChu(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
+                
                 main.ShowFrom(trangchu);
             }
 
@@ -551,6 +552,7 @@ public class FormMain extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Bạn không có quyền", "Nhắc Nhở", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(getClass().getResource("/img/icons8_ask_question_20px_3.png")));
 
                 } else {
+                    xemDiem.loadDataXemDiem();
                     main.ShowFrom(xemDiem);
 
                 }

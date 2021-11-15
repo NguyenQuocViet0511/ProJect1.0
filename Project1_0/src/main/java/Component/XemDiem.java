@@ -36,7 +36,7 @@ public class XemDiem extends javax.swing.JPanel {
     public XemDiem() {
         initComponents();
         Table();
-        loadDataXemDiem();
+        
         init();
     }
 

@@ -59,6 +59,7 @@ public class DanhSachDangKyThiLai extends javax.swing.JPanel {
         sp.getViewport().setBackground(Color.WHITE);
         Table.getColumn("").setCellRenderer(new ButtonRenderer());
         Table.getColumn("").setCellEditor(new ButtonEditor(new JCheckBox()));
+        Table.getColumn("").setMinWidth(20);
 
     }
 
@@ -68,7 +69,7 @@ public class DanhSachDangKyThiLai extends javax.swing.JPanel {
         Query query = Const.session.createQuery("SELECT T.MaMon,T.ID,T.tieude FROM  ThiLai T where T.MaSV=" + "'" + Const.user.getUserName() + "'");
         List<Object[]> ListResult = query.getResultList();
         DefaultTableModel model = (DefaultTableModel) Table.getModel();
-        model.setNumRows(0);
+        model.setRowCount(0);
         for (Object[] item : ListResult) {
 
             model.addRow(item);
@@ -144,14 +145,14 @@ public class DanhSachDangKyThiLai extends javax.swing.JPanel {
                         Const.session.getTransaction().begin();
                         Const.session.delete(thiLai);
                         Const.session.getTransaction().commit();
-                        JOptionPane.showMessageDialog(null, "Xóa Thành Công", "Nhắc Nhở", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(getClass().getResource("src/main/resources/img/icons8_ask_question_20px_3.png")));
+                        JOptionPane.showMessageDialog(null, "hủy Thành Công", "Nhắc Nhở", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(getClass().getResource("/img/icons8_ask_question_20px_3.png")));
 
                         Table.removeEditor();
                         LoadDataDangKyThiLai();
 
                     }
                 } else {
-                    JOptionPane.showMessageDialog(null, "Bạn chọn quá nhanh", "Nhắc Nhở", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(getClass().getResource("src/main/resources/img/icons8_ask_question_20px_3.png")));
+                    JOptionPane.showMessageDialog(null, "Bạn chọn quá nhanh", "Nhắc Nhở", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(getClass().getResource("/img/icons8_ask_question_20px_3.png")));
 
                 }
 

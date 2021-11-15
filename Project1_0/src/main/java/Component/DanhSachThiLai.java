@@ -47,7 +47,7 @@ public class DanhSachThiLai extends javax.swing.JPanel {
     }
 
     public void LoadDataDanhSachThiLai() {
-        Query query = Const.session.createQuery("SELECT s.MaSV,s.hoten,s.NgaySinh,s.Gioitinh,s.MaLop,T.MaMon,l.Makhoa,T.tieude FROM SinhVien s join ThiLai T on s.MaSV = T.MaSV  join Lop l on l.Malop = s.MaLop");
+        Query query = Const.session.createQuery("SELECT s.MaSV,s.hoten,s.NgaySinh,s.Gioitinh,s.MaLop,T.ID,l.Makhoa,T.tieude FROM SinhVien s join ThiLai T on s.MaSV = T.MaSV  join Lop l on l.Malop = s.MaLop");
         List<Object[]> listResult = query.getResultList();
         DefaultTableModel model = (DefaultTableModel) Table.getModel();
         model.setRowCount(0);

@@ -44,7 +44,17 @@ public class Diem {
 
     @Column(name = "MaMonHoc")
     private String MaMon;
+    
+    @Column(name = "Monhoc")
+    private String Monhoc;
 
+    public String getMonhoc() {
+        return Monhoc;
+    }
+
+    public void setMonhoc(String Monhoc) {
+        this.Monhoc = Monhoc;
+    }
     /**
      * @return the ID
      */

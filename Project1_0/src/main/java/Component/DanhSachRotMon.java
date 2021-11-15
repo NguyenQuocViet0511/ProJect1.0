@@ -48,7 +48,7 @@ public class DanhSachRotMon extends javax.swing.JPanel {
     }
 
     public void LoadDataDanhSachRotMon() {
-        Query query = Const.session.createQuery("SELECT s.MaSV,s.hoten,d.MaMon,m.MaKhoa FROM SinhVien s join Diem d on s.MaSV = d.MaSV join Monhoc m on m.MaMonhoc = d.MaMon where d.Tongcuoi < 5");
+        Query query = Const.session.createQuery("SELECT s.MaSV,s.hoten,d.Monhoc,m.MaKhoa FROM SinhVien s join Diem d on s.MaSV = d.MaSV join Monhoc m on m.MaMonhoc = d.MaMon where d.Tongcuoi < 5");
         List<Object[]> listResult = query.getResultList();
         DefaultTableModel model = (DefaultTableModel) Table.getModel();
         model.setRowCount(0);
