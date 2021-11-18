@@ -42,6 +42,7 @@ public class Login extends javax.swing.JFrame {
 
         initComponents();
         Init();
+        AddDate();
         Remmember();
         setLocationRelativeTo(null);
         window_ForgotPW();
@@ -77,6 +78,30 @@ public class Login extends javax.swing.JFrame {
         txtverycode = new javax.swing.JTextField();
         kGradientPanel2 = new keeptoo.KGradientPanel();
         jLabel5 = new javax.swing.JLabel();
+        JPanesignup = new javax.swing.JPanel();
+        jLabel16 = new javax.swing.JLabel();
+        btnsignupnlogin = new javax.swing.JButton();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel9 = new javax.swing.JPanel();
+        CheckFemale = new javax.swing.JRadioButton();
+        CheckMale = new javax.swing.JRadioButton();
+        jPanel7 = new javax.swing.JPanel();
+        btnbacksignup = new javax.swing.JLabel();
+        cknCheckCreate = new javax.swing.JCheckBox();
+        txthovatensignup = new com.raven.swing.MyTextField();
+        txtusernamesignup = new com.raven.swing.MyTextField();
+        txtpwsignup = new com.raven.swing.MyPasswordField();
+        txtemailsignup = new com.raven.swing.MyTextField();
+        jSeparator3 = new javax.swing.JSeparator();
+        jSeparator4 = new javax.swing.JSeparator();
+        jSeparator5 = new javax.swing.JSeparator();
+        jSeparator6 = new javax.swing.JSeparator();
+        cbnNam = new javax.swing.JComboBox<>();
+        jLabel23 = new javax.swing.JLabel();
+        cbnNgay = new javax.swing.JComboBox<>();
+        cbnThang = new javax.swing.JComboBox<>();
+        jLabel24 = new javax.swing.JLabel();
         btnChangePW = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         btnchangePWforgot1 = new javax.swing.JButton();
@@ -114,25 +139,6 @@ public class Login extends javax.swing.JFrame {
         jPanel6 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         txtCodeCheck = new com.raven.swing.MyTextField();
-        JPanesignup = new javax.swing.JPanel();
-        jLabel16 = new javax.swing.JLabel();
-        btnsignupnlogin = new javax.swing.JButton();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jPanel9 = new javax.swing.JPanel();
-        CheckFemale = new javax.swing.JRadioButton();
-        CheckMale = new javax.swing.JRadioButton();
-        jPanel7 = new javax.swing.JPanel();
-        btnbacksignup = new javax.swing.JLabel();
-        cknCheckCreate = new javax.swing.JCheckBox();
-        txthovatensignup = new com.raven.swing.MyTextField();
-        txtusernamesignup = new com.raven.swing.MyTextField();
-        txtpwsignup = new com.raven.swing.MyPasswordField();
-        txtemailsignup = new com.raven.swing.MyTextField();
-        jSeparator3 = new javax.swing.JSeparator();
-        jSeparator4 = new javax.swing.JSeparator();
-        jSeparator5 = new javax.swing.JSeparator();
-        jSeparator6 = new javax.swing.JSeparator();
         JPaneLogin = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -189,6 +195,134 @@ public class Login extends javax.swing.JFrame {
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/grap.png"))); // NOI18N
         kGradientPanel2.add(jLabel5);
         jLabel5.setBounds(220, 260, 380, 320);
+
+        JPanesignup.setBackground(new java.awt.Color(255, 255, 255));
+        JPanesignup.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        JPanesignup.setPreferredSize(new java.awt.Dimension(400, 600));
+        JPanesignup.setLayout(null);
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel16.setText("Tạo Tài Khoản Mới");
+        JPanesignup.add(jLabel16);
+        jLabel16.setBounds(100, 70, 170, 40);
+
+        btnsignupnlogin.setBackground(new java.awt.Color(0, 153, 255));
+        btnsignupnlogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_right_32px_2.png"))); // NOI18N
+        btnsignupnlogin.setText("Đăng Ký");
+        btnsignupnlogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnsignupnlogin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnsignupnloginMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnsignupnloginMouseExited(evt);
+            }
+        });
+        btnsignupnlogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnsignupnloginActionPerformed(evt);
+            }
+        });
+        JPanesignup.add(btnsignupnlogin);
+        btnsignupnlogin.setBounds(60, 430, 250, 40);
+        JPanesignup.add(jLabel18);
+        jLabel18.setBounds(20, 170, 0, 0);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_account_100px.png"))); // NOI18N
+        JPanesignup.add(jLabel1);
+        jLabel1.setBounds(135, 0, 100, 80);
+
+        jPanel9.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel9.setLayout(new java.awt.BorderLayout());
+
+        CheckFemale.setText("Nữ");
+        CheckFemale.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CheckFemaleActionPerformed(evt);
+            }
+        });
+        jPanel9.add(CheckFemale, java.awt.BorderLayout.EAST);
+
+        CheckMale.setText("Nam");
+        CheckMale.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CheckMaleActionPerformed(evt);
+            }
+        });
+        jPanel9.add(CheckMale, java.awt.BorderLayout.CENTER);
+
+        JPanesignup.add(jPanel9);
+        jPanel9.setBounds(60, 355, 140, 20);
+
+        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
+
+        btnbacksignup.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnbacksignup.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_go_back_20px_1.png"))); // NOI18N
+        btnbacksignup.setText("Quay Lại");
+        btnbacksignup.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnbacksignup.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnbacksignupMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnbacksignupMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnbacksignupMouseExited(evt);
+            }
+        });
+        jPanel7.add(btnbacksignup);
+
+        JPanesignup.add(jPanel7);
+        jPanel7.setBounds(60, 480, 250, 30);
+
+        cknCheckCreate.setText("đồng Ý Điều Kiện Thỏa Thuận");
+        JPanesignup.add(cknCheckCreate);
+        cknCheckCreate.setBounds(60, 390, 250, 23);
+
+        txthovatensignup.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        JPanesignup.add(txthovatensignup);
+        txthovatensignup.setBounds(60, 110, 250, 30);
+
+        txtusernamesignup.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        JPanesignup.add(txtusernamesignup);
+        txtusernamesignup.setBounds(60, 160, 250, 30);
+
+        txtpwsignup.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        JPanesignup.add(txtpwsignup);
+        txtpwsignup.setBounds(60, 210, 250, 30);
+
+        txtemailsignup.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        JPanesignup.add(txtemailsignup);
+        txtemailsignup.setBounds(60, 260, 250, 30);
+        JPanesignup.add(jSeparator3);
+        jSeparator3.setBounds(60, 290, 250, 10);
+        JPanesignup.add(jSeparator4);
+        jSeparator4.setBounds(60, 140, 250, 20);
+        JPanesignup.add(jSeparator5);
+        jSeparator5.setBounds(60, 190, 250, 20);
+        JPanesignup.add(jSeparator6);
+        jSeparator6.setBounds(60, 240, 250, 20);
+
+        JPanesignup.add(cbnNam);
+        cbnNam.setBounds(210, 310, 100, 30);
+
+        jLabel23.setText(":");
+        JPanesignup.add(jLabel23);
+        jLabel23.setBounds(124, 310, 10, 30);
+
+        JPanesignup.add(cbnNgay);
+        cbnNgay.setBounds(60, 310, 50, 30);
+
+        JPanesignup.add(cbnThang);
+        cbnThang.setBounds(140, 310, 50, 30);
+
+        jLabel24.setText(":");
+        JPanesignup.add(jLabel24);
+        jLabel24.setBounds(198, 310, 10, 30);
+
+        kGradientPanel2.add(JPanesignup);
+        JPanesignup.setBounds(790, 110, 370, 510);
 
         btnChangePW.setBackground(new java.awt.Color(255, 255, 255));
         btnChangePW.setPreferredSize(new java.awt.Dimension(400, 600));
@@ -406,117 +540,6 @@ public class Login extends javax.swing.JFrame {
         kGradientPanel2.add(JPaneForgotpassword);
         JPaneForgotpassword.setBounds(790, 110, 370, 510);
 
-        JPanesignup.setBackground(new java.awt.Color(255, 255, 255));
-        JPanesignup.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        JPanesignup.setPreferredSize(new java.awt.Dimension(400, 600));
-        JPanesignup.setLayout(null);
-
-        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel16.setText("Tạo Tài Khoản Mới");
-        JPanesignup.add(jLabel16);
-        jLabel16.setBounds(100, 80, 170, 40);
-
-        btnsignupnlogin.setBackground(new java.awt.Color(0, 153, 255));
-        btnsignupnlogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_right_32px_2.png"))); // NOI18N
-        btnsignupnlogin.setText("Đăng Ký");
-        btnsignupnlogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnsignupnlogin.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnsignupnloginMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnsignupnloginMouseExited(evt);
-            }
-        });
-        btnsignupnlogin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnsignupnloginActionPerformed(evt);
-            }
-        });
-        JPanesignup.add(btnsignupnlogin);
-        btnsignupnlogin.setBounds(60, 410, 250, 40);
-        JPanesignup.add(jLabel18);
-        jLabel18.setBounds(20, 170, 0, 0);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_account_100px.png"))); // NOI18N
-        JPanesignup.add(jLabel1);
-        jLabel1.setBounds(135, 0, 100, 90);
-
-        jPanel9.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel9.setLayout(new java.awt.BorderLayout());
-
-        CheckFemale.setText("Nữ");
-        CheckFemale.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CheckFemaleActionPerformed(evt);
-            }
-        });
-        jPanel9.add(CheckFemale, java.awt.BorderLayout.EAST);
-
-        CheckMale.setText("Nam");
-        CheckMale.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CheckMaleActionPerformed(evt);
-            }
-        });
-        jPanel9.add(CheckMale, java.awt.BorderLayout.CENTER);
-
-        JPanesignup.add(jPanel9);
-        jPanel9.setBounds(60, 335, 140, 20);
-
-        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
-
-        btnbacksignup.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        btnbacksignup.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_go_back_20px_1.png"))); // NOI18N
-        btnbacksignup.setText("Quay Lại");
-        btnbacksignup.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnbacksignup.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnbacksignupMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnbacksignupMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnbacksignupMouseExited(evt);
-            }
-        });
-        jPanel7.add(btnbacksignup);
-
-        JPanesignup.add(jPanel7);
-        jPanel7.setBounds(60, 460, 250, 30);
-
-        cknCheckCreate.setText("đồng Ý Điều Kiện Thỏa Thuận");
-        JPanesignup.add(cknCheckCreate);
-        cknCheckCreate.setBounds(60, 370, 250, 23);
-
-        txthovatensignup.setBorder(null);
-        JPanesignup.add(txthovatensignup);
-        txthovatensignup.setBounds(60, 140, 250, 30);
-
-        txtusernamesignup.setBorder(null);
-        JPanesignup.add(txtusernamesignup);
-        txtusernamesignup.setBounds(60, 190, 250, 30);
-
-        txtpwsignup.setBorder(null);
-        JPanesignup.add(txtpwsignup);
-        txtpwsignup.setBounds(60, 240, 250, 30);
-
-        txtemailsignup.setBorder(null);
-        JPanesignup.add(txtemailsignup);
-        txtemailsignup.setBounds(60, 290, 250, 30);
-        JPanesignup.add(jSeparator3);
-        jSeparator3.setBounds(60, 320, 250, 10);
-        JPanesignup.add(jSeparator4);
-        jSeparator4.setBounds(60, 170, 250, 20);
-        JPanesignup.add(jSeparator5);
-        jSeparator5.setBounds(60, 220, 250, 20);
-        JPanesignup.add(jSeparator6);
-        jSeparator6.setBounds(60, 270, 250, 20);
-
-        kGradientPanel2.add(JPanesignup);
-        JPanesignup.setBounds(790, 110, 370, 510);
-
         JPaneLogin.setBackground(new java.awt.Color(255, 255, 255));
         JPaneLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         JPaneLogin.setPreferredSize(new java.awt.Dimension(400, 600));
@@ -676,7 +699,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_btnbackforgotpwMouseClicked
 
     private void btnsignuploginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsignuploginMouseClicked
-        
+
         CheckFemale.setSelected(false);
         CheckMale.setSelected(false);
         JPaneLogin.hide();
@@ -887,7 +910,8 @@ public class Login extends javax.swing.JFrame {
                 user.setEmail(txtemailsignup.getText());
                 user.setUserName(txtusernamesignup.getText());
                 user.setPassword(txtpwsignup.getText());
-                user.setQuyen("User");
+                String NgaySinh = cbnNam.getSelectedItem() + "-" + cbnThang.getSelectedItem() + "-" + cbnNgay.getSelectedItem();
+                user.setNgaySinh(java.sql.Date.valueOf(NgaySinh));
                 user.setTrangThai("Bình Thường");
                 if (CheckMale.isSelected()) {
                     user.setGioitinh("Nam");
@@ -1035,6 +1059,9 @@ public class Login extends javax.swing.JFrame {
     }
 
     private boolean checkUserlogin() {
+        Const.ListUser = null;
+        Query q = Const.session.createQuery("FROM User");
+        Const.ListUser = q.getResultList();
         for (int i = 0; i < Const.ListUser.size(); i++) {
             String UserName = txtusernamelogin.getText();
             String Password = txtpwlogin.getText();
@@ -1175,7 +1202,28 @@ public class Login extends javax.swing.JFrame {
         });
     }
 
+    private void AddDate() {
+        for (int i = 1; i <= 9; i++) {
+            cbnNgay.addItem(0 + "" + i);
 
+        }
+        for (int i = 10; i <= 31; i++) {
+            cbnNgay.addItem("" + i);
+
+        }
+        for (int i = 1; i <= 9; i++) {
+            cbnThang.addItem(0 + "" + i);
+
+        }
+        for (int i = 10; i <= 12; i++) {
+            cbnThang.addItem("" + i);
+
+        }
+        for (int i = 1991; i <= 2200; i++) {
+            cbnNam.addItem("" + i);
+
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton CheckFemale;
     private javax.swing.JRadioButton CheckMale;
@@ -1201,6 +1249,9 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel btnsignuplogin;
     private javax.swing.JButton btnsignupnlogin;
     private javax.swing.JButton btnsinginlogin;
+    private javax.swing.JComboBox<String> cbnNam;
+    private javax.swing.JComboBox<String> cbnNgay;
+    private javax.swing.JComboBox<String> cbnThang;
     private javax.swing.JCheckBox cknCheckCreate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1217,6 +1268,8 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1294,7 +1347,7 @@ public class Login extends javax.swing.JFrame {
         txtemailsignup.setHint("Email");
         txtchangefotgot1.setHint("Nhập Lại Mật Khẩu");
         txtPWchangeforgot.setHint("Nhập Mật Khẩu Mới");
-        
+
     }
 
 }
