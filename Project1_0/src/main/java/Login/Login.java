@@ -88,7 +88,6 @@ public class Login extends javax.swing.JFrame {
         CheckMale = new javax.swing.JRadioButton();
         jPanel7 = new javax.swing.JPanel();
         btnbacksignup = new javax.swing.JLabel();
-        cknCheckCreate = new javax.swing.JCheckBox();
         txthovatensignup = new com.raven.swing.MyTextField();
         txtusernamesignup = new com.raven.swing.MyTextField();
         txtpwsignup = new com.raven.swing.MyPasswordField();
@@ -102,6 +101,7 @@ public class Login extends javax.swing.JFrame {
         cbnNgay = new javax.swing.JComboBox<>();
         cbnThang = new javax.swing.JComboBox<>();
         jLabel24 = new javax.swing.JLabel();
+        cknCheckCreate = new javax.swing.JCheckBox();
         btnChangePW = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         btnchangePWforgot1 = new javax.swing.JButton();
@@ -252,7 +252,7 @@ public class Login extends javax.swing.JFrame {
         jPanel9.add(CheckMale, java.awt.BorderLayout.CENTER);
 
         JPanesignup.add(jPanel9);
-        jPanel9.setBounds(60, 355, 140, 20);
+        jPanel9.setBounds(60, 205, 140, 20);
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -274,11 +274,7 @@ public class Login extends javax.swing.JFrame {
         jPanel7.add(btnbacksignup);
 
         JPanesignup.add(jPanel7);
-        jPanel7.setBounds(60, 480, 250, 30);
-
-        cknCheckCreate.setText("đồng Ý Điều Kiện Thỏa Thuận");
-        JPanesignup.add(cknCheckCreate);
-        cknCheckCreate.setBounds(60, 390, 250, 23);
+        jPanel7.setBounds(60, 475, 250, 30);
 
         txthovatensignup.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         JPanesignup.add(txthovatensignup);
@@ -286,40 +282,44 @@ public class Login extends javax.swing.JFrame {
 
         txtusernamesignup.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         JPanesignup.add(txtusernamesignup);
-        txtusernamesignup.setBounds(60, 160, 250, 30);
+        txtusernamesignup.setBounds(60, 240, 250, 30);
 
         txtpwsignup.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         JPanesignup.add(txtpwsignup);
-        txtpwsignup.setBounds(60, 210, 250, 30);
+        txtpwsignup.setBounds(60, 290, 250, 30);
 
         txtemailsignup.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         JPanesignup.add(txtemailsignup);
-        txtemailsignup.setBounds(60, 260, 250, 30);
+        txtemailsignup.setBounds(60, 340, 250, 30);
         JPanesignup.add(jSeparator3);
-        jSeparator3.setBounds(60, 290, 250, 10);
+        jSeparator3.setBounds(60, 370, 250, 10);
         JPanesignup.add(jSeparator4);
         jSeparator4.setBounds(60, 140, 250, 20);
         JPanesignup.add(jSeparator5);
-        jSeparator5.setBounds(60, 190, 250, 20);
+        jSeparator5.setBounds(60, 270, 250, 20);
         JPanesignup.add(jSeparator6);
-        jSeparator6.setBounds(60, 240, 250, 20);
+        jSeparator6.setBounds(60, 320, 250, 20);
 
         JPanesignup.add(cbnNam);
-        cbnNam.setBounds(210, 310, 100, 30);
+        cbnNam.setBounds(210, 160, 100, 30);
 
         jLabel23.setText(":");
         JPanesignup.add(jLabel23);
-        jLabel23.setBounds(124, 310, 10, 30);
+        jLabel23.setBounds(125, 160, 10, 30);
 
         JPanesignup.add(cbnNgay);
-        cbnNgay.setBounds(60, 310, 50, 30);
+        cbnNgay.setBounds(60, 160, 50, 30);
 
         JPanesignup.add(cbnThang);
-        cbnThang.setBounds(140, 310, 50, 30);
+        cbnThang.setBounds(140, 160, 50, 30);
 
         jLabel24.setText(":");
         JPanesignup.add(jLabel24);
-        jLabel24.setBounds(198, 310, 10, 30);
+        jLabel24.setBounds(198, 160, 10, 30);
+
+        cknCheckCreate.setText("đồng Ý Điều Kiện Thỏa Thuận");
+        JPanesignup.add(cknCheckCreate);
+        cknCheckCreate.setBounds(60, 390, 250, 23);
 
         kGradientPanel2.add(JPanesignup);
         JPanesignup.setBounds(790, 110, 370, 510);
@@ -1223,6 +1223,7 @@ public class Login extends javax.swing.JFrame {
             cbnNam.addItem("" + i);
 
         }
+     
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton CheckFemale;
