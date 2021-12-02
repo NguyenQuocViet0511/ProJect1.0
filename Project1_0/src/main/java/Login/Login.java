@@ -206,18 +206,9 @@ public class Login extends javax.swing.JFrame {
         JPanesignup.add(jLabel16);
         jLabel16.setBounds(100, 70, 170, 40);
 
-        btnsignupnlogin.setBackground(new java.awt.Color(0, 153, 255));
         btnsignupnlogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_right_32px_2.png"))); // NOI18N
         btnsignupnlogin.setText("Đăng Ký");
         btnsignupnlogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnsignupnlogin.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnsignupnloginMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnsignupnloginMouseExited(evt);
-            }
-        });
         btnsignupnlogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnsignupnloginActionPerformed(evt);
@@ -307,6 +298,8 @@ public class Login extends javax.swing.JFrame {
         JPanesignup.add(jLabel23);
         jLabel23.setBounds(125, 160, 10, 30);
 
+        cbnNgay.setBorder(null);
+        cbnNgay.setOpaque(false);
         JPanesignup.add(cbnNgay);
         cbnNgay.setBounds(60, 160, 50, 30);
 
@@ -737,14 +730,6 @@ public class Login extends javax.swing.JFrame {
     private void btnbacksignupMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbacksignupMouseEntered
         btnbacksignup.setForeground(Color.red);
     }//GEN-LAST:event_btnbacksignupMouseEntered
-
-    private void btnsignupnloginMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsignupnloginMouseEntered
-        btnsignupnlogin.setBackground(Color.BLUE);
-    }//GEN-LAST:event_btnsignupnloginMouseEntered
-
-    private void btnsignupnloginMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsignupnloginMouseExited
-        btnsignupnlogin.setBackground(getBackground());
-    }//GEN-LAST:event_btnsignupnloginMouseExited
 
     private void btnbacksignupMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbacksignupMouseExited
         btnbacksignup.setForeground(Color.BLACK);
@@ -1348,6 +1333,7 @@ public class Login extends javax.swing.JFrame {
         txtemailsignup.setHint("Email");
         txtchangefotgot1.setHint("Nhập Lại Mật Khẩu");
         txtPWchangeforgot.setHint("Nhập Mật Khẩu Mới");
+        
 
     }
 

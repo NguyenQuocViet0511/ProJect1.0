@@ -293,6 +293,7 @@ public class PhanQuyen extends javax.swing.JPanel {
             }
 
         });
+        Table.setRowHeight(25);
         String[] Position = {"Admin", "GiaoVien", "SinhVien", "User"};
         for (String item : Position) {
             CbnQuyen.addItem(item);

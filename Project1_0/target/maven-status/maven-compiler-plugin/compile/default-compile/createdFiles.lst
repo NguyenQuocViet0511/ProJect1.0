@@ -220,6 +220,7 @@ Component\DanhSachDangKyThiLai$2.class
 Menu\SystemMenu$3.class
 Component\Form_UpdateUser$2.class
 Component\QuanLiLop$9.class
+Login\ComboBox.class
 Component\Form_SuaSinhVien$1.class
 Component\Form_UpdateUser.class
 Component\QuanLiKhoa$5.class
@@ -252,7 +253,6 @@ Component\Thongtin$3.class
 Main\FormMain$18.class
 Component\QuanLiLMonhoc$3.class
 Component\NhapDiem$10.class
-Login\Login$21.class
 Login\Login$7.class
 Component\Form_UpdateUser$3.class
 Component\Menu$3.class

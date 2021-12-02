@@ -74,7 +74,7 @@
                   <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="135" max="32767" attributes="0"/>
+                  <EmptySpace pref="127" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -102,11 +102,11 @@
                                   <Component id="jLabel3" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="cknhienmatkhau" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtMatkhaucu" min="-2" pref="382" max="-2" attributes="0"/>
-                                  <Component id="txtnhaplaimatkhau" min="-2" pref="382" max="-2" attributes="0"/>
-                                  <Component id="txtmatkhaumoi" min="-2" pref="382" max="-2" attributes="0"/>
+                                  <Component id="txtMatkhaucu" max="32767" attributes="0"/>
+                                  <Component id="txtmatkhaumoi" pref="382" max="32767" attributes="0"/>
+                                  <Component id="txtnhaplaimatkhau" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -117,24 +117,30 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtMatkhaucu" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                          <Component id="txtMatkhaucu" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtmatkhaumoi" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                          <Component id="txtmatkhaumoi" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtnhaplaimatkhau" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="txtnhaplaimatkhau" pref="35" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="cknhienmatkhau" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                       <Component id="btnthaydoimatkhau" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="39" max="32767" attributes="0"/>
                   </Group>
@@ -166,30 +172,6 @@
                 <Property name="text" type="java.lang.String" value="Nh&#x1ead;p L&#x1ea1;i M&#x1ead;t Kh&#x1ea9;u :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JPasswordField" name="txtMatkhaucu">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="pasowrd"/>
-              </Properties>
-              <Events>
-                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtMatkhaucuFocusGained"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JPasswordField" name="txtnhaplaimatkhau">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="password"/>
-              </Properties>
-              <Events>
-                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtnhaplaimatkhauFocusGained"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JPasswordField" name="txtmatkhaumoi">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="password"/>
-              </Properties>
-              <Events>
-                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtmatkhaumoiFocusGained"/>
-              </Events>
-            </Component>
             <Component class="javax.swing.JCheckBox" name="cknhienmatkhau">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Hi&#x1ec7;n M&#x1ead;t Kh&#x1ea9;u"/>
@@ -208,6 +190,33 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnthaydoimatkhauActionPerformed"/>
               </Events>
+            </Component>
+            <Component class="com.raven.swing.MyPasswordField" name="txtMatkhaucu">
+              <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                    <TitledBorder/>
+                  </Border>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="com.raven.swing.MyPasswordField" name="txtmatkhaumoi">
+              <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                    <TitledBorder/>
+                  </Border>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="com.raven.swing.MyPasswordField" name="txtnhaplaimatkhau">
+              <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                    <TitledBorder/>
+                  </Border>
+                </Property>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>

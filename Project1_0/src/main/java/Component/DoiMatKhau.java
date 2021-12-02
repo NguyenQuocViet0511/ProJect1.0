@@ -21,6 +21,9 @@ public class DoiMatKhau extends javax.swing.JPanel {
     public DoiMatKhau() {
         initComponents();
         setOpaque(false);
+        txtMatkhaucu.setHint("Nhập Vào Mật Khẩu cũ");
+        txtmatkhaumoi.setHint("Nhập Vào Mật Khẩu mới");
+        txtnhaplaimatkhau.setHint("Nhập lại Mật Khẩu mới");
     }
 
     /**
@@ -37,11 +40,11 @@ public class DoiMatKhau extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txtMatkhaucu = new javax.swing.JPasswordField();
-        txtnhaplaimatkhau = new javax.swing.JPasswordField();
-        txtmatkhaumoi = new javax.swing.JPasswordField();
         cknhienmatkhau = new javax.swing.JCheckBox();
         btnthaydoimatkhau = new javax.swing.JButton();
+        txtMatkhaucu = new com.raven.swing.MyPasswordField();
+        txtmatkhaumoi = new com.raven.swing.MyPasswordField();
+        txtnhaplaimatkhau = new com.raven.swing.MyPasswordField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
 
@@ -61,27 +64,6 @@ public class DoiMatKhau extends javax.swing.JPanel {
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("Nhập Lại Mật Khẩu :");
 
-        txtMatkhaucu.setText("pasowrd");
-        txtMatkhaucu.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtMatkhaucuFocusGained(evt);
-            }
-        });
-
-        txtnhaplaimatkhau.setText("password");
-        txtnhaplaimatkhau.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtnhaplaimatkhauFocusGained(evt);
-            }
-        });
-
-        txtmatkhaumoi.setText("password");
-        txtmatkhaumoi.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtmatkhaumoiFocusGained(evt);
-            }
-        });
-
         cknhienmatkhau.setText("Hiện Mật Khẩu");
         cknhienmatkhau.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,6 +79,12 @@ public class DoiMatKhau extends javax.swing.JPanel {
             }
         });
 
+        txtMatkhaucu.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+
+        txtmatkhaumoi.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+
+        txtnhaplaimatkhau.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -111,31 +99,35 @@ public class DoiMatKhau extends javax.swing.JPanel {
                             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(cknhienmatkhau)
-                            .addComponent(txtMatkhaucu, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtnhaplaimatkhau, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtmatkhaumoi, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtMatkhaucu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtmatkhaumoi, javax.swing.GroupLayout.DEFAULT_SIZE, 382, Short.MAX_VALUE)
+                            .addComponent(txtnhaplaimatkhau, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(103, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(91, 91, 91)
+                .addGap(92, 92, 92)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(txtMatkhaucu, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
+                    .addComponent(txtMatkhaucu, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txtmatkhaumoi, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtnhaplaimatkhau, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtmatkhaumoi, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(9, 9, 9)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(jLabel3))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(txtnhaplaimatkhau, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
                 .addComponent(cknhienmatkhau)
-                .addGap(18, 18, 18)
+                .addGap(7, 7, 7)
                 .addComponent(btnthaydoimatkhau)
                 .addContainerGap(39, Short.MAX_VALUE))
         );
@@ -155,11 +147,9 @@ public class DoiMatKhau extends javax.swing.JPanel {
                 .addGap(29, 29, 29))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel5)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -171,7 +161,7 @@ public class DoiMatKhau extends javax.swing.JPanel {
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(135, Short.MAX_VALUE))
+                .addContainerGap(127, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -205,39 +195,27 @@ public class DoiMatKhau extends javax.swing.JPanel {
     private void btnthaydoimatkhauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnthaydoimatkhauActionPerformed
         ChangePassword();
     }//GEN-LAST:event_btnthaydoimatkhauActionPerformed
-
-    private void txtMatkhaucuFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtMatkhaucuFocusGained
-        txtMatkhaucu.setText("");
-    }//GEN-LAST:event_txtMatkhaucuFocusGained
-
-    private void txtmatkhaumoiFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtmatkhaumoiFocusGained
-        txtmatkhaumoi.setText("");
-    }//GEN-LAST:event_txtmatkhaumoiFocusGained
-
-    private void txtnhaplaimatkhauFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtnhaplaimatkhauFocusGained
-        txtnhaplaimatkhau.setText("");
-    }//GEN-LAST:event_txtnhaplaimatkhauFocusGained
     private void ChangePassword() {
         User user = Const.user;
-        if (txtMatkhaucu.getText().isEmpty() || txtmatkhaumoi.getText().isEmpty() || txtnhaplaimatkhau.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Không Được Để Trống", "Nhắc Nhở", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(getClass().getResource("src/main/resources/img/icons8_ask_question_20px_3.png")));
+        if (txtmatkhaumoi.getText().isEmpty() || txtmatkhaumoi.getText().isEmpty() || txtnhaplaimatkhau.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Không Được Để Trống", "Nhắc Nhở", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(getClass().getResource("/img/icons8_ask_question_20px_3.png")));
 
         } else {
-            if (txtMatkhaucu.getText().equals(user.getPassword())) {
+            if (txtmatkhaumoi.getText().equals(user.getPassword())) {
                 if (txtmatkhaumoi.getText().equals(txtnhaplaimatkhau.getText())) {
                     User ChangePassword = Const.session.get(User.class, user.getUserName());
                     ChangePassword.setPassword(txtmatkhaumoi.getText());
                     Const.session.getTransaction().begin();
                     Const.session.save(ChangePassword);
                     Const.session.getTransaction().commit();
-            JOptionPane.showMessageDialog(null, "Thay Đổi Thành Công", "Nhắc Nhở", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(getClass().getResource("src/main/resources/img/icons8_ask_question_20px_3.png")));
+            JOptionPane.showMessageDialog(null, "Thay Đổi Thành Công", "Nhắc Nhở", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(getClass().getResource("/img/icons8_ask_question_20px_3.png")));
 
                 } else {
-            JOptionPane.showMessageDialog(null, "Nhập lại Mật Khẩu Không Giống Nhau", "Nhắc Nhở", JOptionPane.INFORMATION_MESSAGE,new ImageIcon(getClass().getResource("src/main/resources/img/icons8_ask_question_20px_3.png")));
+            JOptionPane.showMessageDialog(null, "Nhập lại Mật Khẩu Không Giống Nhau", "Nhắc Nhở", JOptionPane.INFORMATION_MESSAGE,new ImageIcon(getClass().getResource("/img/icons8_ask_question_20px_3.png")));
 
                 }
             } else {
-            JOptionPane.showMessageDialog(null, "Mật Khẩu cũ Sai Vui Lòng Nhập Lại", "Nhắc Nhở", JOptionPane.INFORMATION_MESSAGE,new ImageIcon(getClass().getResource("src/main/resources/img/icons8_ask_question_20px_3.png")));
+            JOptionPane.showMessageDialog(null, "Mật Khẩu cũ Sai Vui Lòng Nhập Lại", "Nhắc Nhở", JOptionPane.INFORMATION_MESSAGE,new ImageIcon(getClass().getResource("/img/icons8_ask_question_20px_3.png")));
 
             }
         }
@@ -254,8 +232,8 @@ public class DoiMatKhau extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField txtMatkhaucu;
-    private javax.swing.JPasswordField txtmatkhaumoi;
-    private javax.swing.JPasswordField txtnhaplaimatkhau;
+    private com.raven.swing.MyPasswordField txtMatkhaucu;
+    private com.raven.swing.MyPasswordField txtmatkhaumoi;
+    private com.raven.swing.MyPasswordField txtnhaplaimatkhau;
     // End of variables declaration//GEN-END:variables
 }
