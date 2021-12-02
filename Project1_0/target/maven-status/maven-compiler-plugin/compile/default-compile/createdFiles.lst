@@ -84,7 +84,6 @@ Component\Form_UpdateUser$8.class
 Component\Admin$10.class
 Main\FormMain$8.class
 Menu\Teachers$5.class
-Component\DoiMatKhau$5.class
 Component\Form_AddSinhVien$3.class
 Component\DanhSachRotMon.class
 scrollbar\ModernScrollBarUI$ScrollBarButton.class
@@ -144,7 +143,6 @@ Component\NhapDiem.class
 Component\Form_UpdateUser$6.class
 Component\Admin$5.class
 Menu\SystemMenu$4.class
-Component\DoiMatKhau$4.class
 Menu\Teachers$1.class
 Component\NhapDiem$9.class
 Login\Login$11.class
@@ -175,7 +173,6 @@ Login\Login$9.class
 Component\Admin$4.class
 Main\FormMain$31.class
 Component\PhanQuyen$1.class
-Component\DoiMatKhau$3.class
 Hiberneat\SinhVien\SinhVien.class
 Login\Login$3.class
 Component\Admin$ButtonRenderer.class
