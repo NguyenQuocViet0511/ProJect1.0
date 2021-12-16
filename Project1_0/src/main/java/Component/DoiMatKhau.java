@@ -199,9 +199,8 @@ public class DoiMatKhau extends javax.swing.JPanel {
         User user = Const.user;
         if (txtmatkhaumoi.getText().isEmpty() || txtmatkhaumoi.getText().isEmpty() || txtnhaplaimatkhau.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Không Được Để Trống", "Nhắc Nhở", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(getClass().getResource("/img/icons8_ask_question_20px_3.png")));
-
         } else {
-            if (txtmatkhaumoi.getText().equals(user.getPassword())) {
+            if (txtMatkhaucu.getText().equals(user.getPassword())) {
                 if (txtmatkhaumoi.getText().equals(txtnhaplaimatkhau.getText())) {
                     User ChangePassword = Const.session.get(User.class, user.getUserName());
                     ChangePassword.setPassword(txtmatkhaumoi.getText());

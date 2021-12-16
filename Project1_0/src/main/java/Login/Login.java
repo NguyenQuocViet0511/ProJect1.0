@@ -903,7 +903,7 @@ public class Login extends javax.swing.JFrame {
                 } else {
                     user.setGioitinh("Nữ");
                 }
-
+                user.setQuyen("User");
                 Const.session.getTransaction().begin();
                 Const.session.save(user);
                 Const.session.getTransaction().commit();

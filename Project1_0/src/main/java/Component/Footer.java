@@ -30,9 +30,7 @@ public class Footer extends javax.swing.JPanel {
         new Thread() {
             public void run() {
                 while (true) {
-                    Calendar c = new GregorianCalendar();
-                    
-
+                    Calendar c = new GregorianCalendar();                 
                     int hour = c.get(Calendar.HOUR);
                     int minute = c.get(Calendar.MINUTE);
                     int second = c.get(Calendar.SECOND);

@@ -603,7 +603,6 @@ public class NhapDiem extends javax.swing.JPanel {
                 int index = Table.getSelectedRow();
                 if (index >= 0) {
                     int option = JOptionPane.showConfirmDialog(null, "Bạn Có Muốn Xóa không", "Nhắc Nhở", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, new ImageIcon(getClass().getResource("/img/icons8_ask_question_20px_3.png")));
-
                     if (option == 0) {
                         int search = Integer.parseInt(Table.getValueAt(index, 0).toString());
                         Diem delete = Const.session.get(Diem.class, search);
@@ -611,7 +610,6 @@ public class NhapDiem extends javax.swing.JPanel {
                         Const.session.delete(delete);
                         Const.session.getTransaction().commit();
                         JOptionPane.showMessageDialog(null, "Xóa Thành Công", "Nhắc Nhở", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(getClass().getResource("/img/icons8_ask_question_20px_3.png")));
-
                         Table.removeEditor();
                         loadDataDiem();
                         TxtMaSinhVien.setText("");
